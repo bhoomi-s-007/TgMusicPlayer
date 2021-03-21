@@ -45,7 +45,7 @@ async def search(_, message: Message):
         )
     )
 
-@Client.on_message(command(["search", "search@VCPlay_Robot"]) & other_filters2)
+@Client.on_message(command("search") & other_filters2)
 async def search(_, message: Message):
     await message.reply_text(
         "❕ This command works only in groups only")
