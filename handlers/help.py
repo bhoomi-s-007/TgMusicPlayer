@@ -6,13 +6,14 @@ PM_HELP_TEXT = """Add @VCPlayAssistant and @VCPlay_Robot to your group\n
 Inline - `@VCPlay_Robot Yt video name`\n
 Normal - `/play Yt link`\n\n
 **Other Commands:**\n
-/start : `for inline menu to search yt video`\n
+/start : `Just for fun XD`\n
+/search : `For inline search buttons`\n
 /pause : `to pause the song`\n
 /resume : `to resume the song`\n
 /end : `to stop streaming`\n
 /next : `to play next song` **(fixed)**\n
 /admincache : `to refresh the admin cache`\n\n
-For queries contact @DetectiveVI"""
+For queries contact Owner"""
 
 @Client.on_message(filters.command(["help", "help@VCPlay_Robot"]))
 async def help(client, message):
