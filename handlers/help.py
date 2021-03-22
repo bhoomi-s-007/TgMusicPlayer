@@ -6,12 +6,13 @@ PM_HELP_TEXT = """Add @VCPlayAssistant and @VCPlay_Robot to your group\n
 Inline - `@VCPlay_Robot Yt video name`\n
 Normal - `/play Yt link`\n\n
 **Other Commands:**\n
-/start : `Just for fun XD`\n
-/search : `For inline search buttons`\n
-/pause : `to pause the song`\n
-/resume : `to resume the song`\n
-/end : `to stop streaming`\n
-/next : `to play next song` **(fixed)**\n
+/start : `Just for fun XD`
+/search : `For inline search buttons`
+/pause : `to pause the song`
+/resume : `to resume the song`
+/end : `to stop streaming`
+/next : `to play next song`
+/ping : `to check the ping`
 /admincache : `to refresh the admin cache`\n\n
 For queries contact Owner"""
 
