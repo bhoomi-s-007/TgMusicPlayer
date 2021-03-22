@@ -4,7 +4,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from helpers.filters import command
 
 
-@Client.on_message(command(["start", "start/VCPlay_Robot"]))
+@Client.on_message(command(["start", "start@VCPlay_Robot"]))
 async def start(_, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
