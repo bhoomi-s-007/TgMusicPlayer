@@ -129,7 +129,7 @@ async def deezer(client: Client, message_: Message):
     m = await client.send_photo(
         chat_id=message_.chat.id,
         photo="final.png",
-        caption=f"Playing [{title}]({url}) Via Deezer."
+        caption=f"Playing [{title}]({url}) Via Deezer.",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Music Bot", url="t.me/VCPlay_Robot")]]
         ),
