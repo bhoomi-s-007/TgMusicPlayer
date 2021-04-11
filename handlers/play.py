@@ -18,11 +18,11 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 import os
-from tgcalls import pytgcalls
-import tgcalls
+from callsmusic import pytgcalls
+import callsmusic
 from converter import convert
 from youtube import download
-import sira
+import queues
 from config import DURATION_LIMIT
 from helpers.wrappers import errors, admins_only
 from helpers.errors import DurationLimitError
@@ -30,7 +30,7 @@ from helpers.errors import DurationLimitError
 
 chat_id = None
 @Client.on_message(
-    filters.command("play")
+    filters.command(["play", "play@VCPlay_Robot"])
     & filters.group
     & ~ filters.edited
 )
@@ -77,10 +77,10 @@ async def play(client: Client, message_: Message):
         file_path =await convert(download(url))
 
     if message_.chat.id in tgcalls.pytgcalls.active_calls:
-        position = sira.add(message_.chat.id, file_path)
+        position = queues.add(message_.chat.id, file_path)
         await res.edit_text(f"🔥Your song is queued at position {position}.")
     else:
-        await res.edit_text("✯𝗩𝗖𝗣𝗹𝗮𝘆✯=▶️ Playing...")
+        await res.edit_text("🥳 Playing...")
         res.delete
         m = await client.send_photo(
         chat_id=message_.chat.id,
@@ -92,7 +92,7 @@ async def play(client: Client, message_: Message):
 
 #---------------------------------DEEZER------------------------------------------------------------------
 @Client.on_message(
-    filters.command("deezer")
+    filters.command(["deezer", "deezer@VCPlay_Robot"])
     & filters.group
     & ~ filters.edited
 )
@@ -120,7 +120,7 @@ async def deezer(client: Client, message_: Message):
     await generate_cover_square(requested_by, title, artist, duration, thumbnail)
     if message_.chat.id in tgcalls.pytgcalls.active_calls:
         await res.edit("adding in queue")
-        position = sira.add(message_.chat.id, file_path)
+        position = queues.add(message_.chat.id, file_path)
         await res.edit_text(f"🔥Your song is queued at position {position}.")
     else:
         await res.edit_text("🥳 Playing.....")
@@ -134,7 +134,7 @@ async def deezer(client: Client, message_: Message):
     os.remove("final.png")
 # -----------------------------------------------------Jiosaavn-----------------------------------------------------------------
 @Client.on_message(
-    filters.command("saavn")
+    filters.command(["saavn", "saavn@VCPlay_Robot"])
     & filters.group
     & ~ filters.edited
 )
@@ -164,7 +164,7 @@ async def jiosaavn(client: Client, message_: Message):
         return
     file_path= await convert(wget.download(slink))
     if message_.chat.id in tgcalls.pytgcalls.active_calls:
-        position = sira.add(message_.chat.id, file_path)
+        position = queues.add(message_.chat.id, file_path)
         await res.edit_text(f"🔥Your song is queued at position {position}.")
     else:
         await res.edit_text("🥳 Playing.....")
@@ -190,7 +190,7 @@ def changeImageSize(maxWidth, maxHeight, image):
  
  #-----------------------------------YOUTUBE--------------------------------------------------------------
 @Client.on_message(
-    filters.command("ut")
+    filters.command(["ytt", "ytt@VCPlay_Robot"])
     & filters.group
     & ~ filters.edited
 )
@@ -216,7 +216,7 @@ async def ytp(client: Client, message_: Message):
         return
     file_path = await convert(download(link))
     if message_.chat.id in tgcalls.pytgcalls.active_calls:
-        position = sira.add(message_.chat.id, file_path)
+        position = queues.add(message_.chat.id, file_path)
         await res.edit_text(f"Your song is queued at position {position}.")
     else:
         await res.edit_text("🥳 Playing....")
