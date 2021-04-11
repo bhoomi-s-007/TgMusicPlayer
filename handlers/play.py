@@ -85,11 +85,8 @@ async def play(client: Client, message_: Message):
         m = await client.send_photo(
         chat_id=message_.chat.id,
         photo="https://telegra.ph/file/b3622515d3c4b6983fb7e.jpg",
-        caption=f"Playing Your song",
-            [[InlineKeyboardButton("Music Bot", url="VCPlay_Robot")]]
-        ),
-        parse_mode="markdown",
-    )
+        caption=f"Playing Your song Via [🔥Music Bot🔥](https://t.me/VCPlay_Robot).
+        )
         callsmusic.pytgcalls.join_group_call(message_.chat.id, file_path)
 
 
