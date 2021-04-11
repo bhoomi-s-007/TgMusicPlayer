@@ -84,9 +84,12 @@ async def play(client: Client, message_: Message):
         res.delete
         m = await client.send_photo(
         chat_id=message_.chat.id,
-        photo="https://telegra.ph/file/cbb01a85e551c67766572.jpg",
-        caption=f"Playing Your song Via  [🔥Music Bot🔥](https://t.me/VCPlay_Robot).",
-         ) 
+        photo="https://telegra.ph/file/b3622515d3c4b6983fb7e.jpg",
+        caption=f"Playing Your song",
+            [[InlineKeyboardButton("Music Bot", url="VCPlay_Robot")]]
+        ),
+        parse_mode="markdown",
+    )
         callsmusic.pytgcalls.join_group_call(message_.chat.id, file_path)
 
 
@@ -129,7 +132,11 @@ async def deezer(client: Client, message_: Message):
     m = await client.send_photo(
         chat_id=message_.chat.id,
         photo="final.png",
-        caption=f"Playing [{title}]({url}) Via [Deezer](https://t.me/VCPlay_Robot)."
+        caption=f"Playing [{title}]({url}) Via Deezer."
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("Music Bot", url="t.me/VCPlay_Robot")]]
+        ),
+        parse_mode="markdown",
     ) 
     os.remove("final.png")
 # -----------------------------------------------------Jiosaavn-----------------------------------------------------------------
@@ -174,8 +181,12 @@ async def jiosaavn(client: Client, message_: Message):
     await res.delete()
     m = await client.send_photo(
         chat_id=message_.chat.id,
-        caption=f"Playing {sname} Via [Jiosaavn](https://t.me/VCPlay_Robot)",
+        caption=f"Playing {sname} Via JioSaavn",
         photo="final.png",
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("Music Bot", url="t.me/VCPlay_Robot")]]
+        ),
+        parse_mode="markdown",
     )
     os.remove("final.png")
 
@@ -243,7 +254,7 @@ async def generate_cover_square(requested_by, title, artist, duration, thumbnail
                 await f.write(await resp.read())
                 await f.close()
     image1 = Image.open("./background.png")
-    image2 = Image.open("Others/AURAX.png")
+    image2 = Image.open("Others/THUMB.png")
     image3 = changeImageSize(1280, 720, image1)
     image4 = changeImageSize(1280, 720, image2)
     image5 = image3.convert("RGBA")
@@ -283,7 +294,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
                 await f.close()
 
     image1 = Image.open("./background.png")
-    image2 = Image.open("Others/AURAX.png")
+    image2 = Image.open("Others/THUMB.png")
     image3 = changeImageSize(1280, 720, image1)
     image4 = changeImageSize(1280, 720, image2)
     image5 = image3.convert("RGBA")
