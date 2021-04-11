@@ -4,9 +4,9 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 PM_HELP_TEXT = """Add @VCPlayAssistant and @VCPlay_Robot to your group\n
 **Usage:**
 Inline - `@VCPlay_Robot Yt video name`
-Normal - `/play Yt link`\n
-Youtube Search - `/ytt Song name`\n
-Deezer - `/deezer song name`\n
+Normal - `/play Yt link`
+Youtube Search - `/ytt Song name`
+Deezer - `/deezer song name`
 JioSaavn - '/saavn song name`\n
 **Other Commands:**
 /start : `Just for fun XD`
