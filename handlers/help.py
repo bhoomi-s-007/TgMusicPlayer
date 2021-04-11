@@ -7,7 +7,7 @@ Inline - `@VCPlay_Robot Yt video name`
 Normal - `/play Yt link`
 Youtube Search - `/ytt Song name`
 Deezer - `/deezer song name`
-JioSaavn - '/saavn song name`\n
+JioSaavn - `/saavn song name`\n
 **Other Commands:**
 /start : `Just for fun XD`
 /search : `For inline search buttons`
